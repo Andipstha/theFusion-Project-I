@@ -10,7 +10,7 @@ void updateData(int);
 void deleteData(int);
 void searchData(void);
 int checkBookNo(int);
-int findLastBook(void);
+int findLastBookNo(void);
 //Code to declare file pointer
 FILE *fp,*fp1;
 //Code to design structure
@@ -27,84 +27,85 @@ struct book
 //Code to declare structure variable
 struct book b;
 //Code to declare main function
-void main()
+main()
 {
     int choice;
     int bn;
     while(1)
     {
-    	system("cls");
-        //Code to display menu
-        printf("\n\t\t*******************************");
-        printf("\n\t\t*******************************");
-        printf("\n\t\t***LIBRARY BOOKS INFO SYSTEM***");
-        printf("\n\t\t**********KIST COLLEGE*********");
-        printf("\n\t\t\t1. Insert Record");
-        printf("\n\t\t\t2. Display Record");
-        printf("\n\t\t\t3. Update Record");
-        printf("\n\t\t\t4. Delete Record");
-        printf("\n\t\t\t5. Search Record");
-        printf("\n\t\t\t6. Quit");
-        printf("\n\n\tEnter your choice between 1 to 6 : ");
-        scanf("%d",&choice);
-        switch(choice)
-        {
-            case 1:
-                    //Code to call insertData function
-                    insertData();
-                    break;
-            case 2:
-                    //Code to call displayData function
-                    displayData();
-                    break;
-            case 3:
-                    //Code to call updateData function
-                    printf("\nEnter the book no. which you want to update");
-                    scanf("%d",&bn);
-                    updateData(bn);
-                    break;
-            case 4:
-                    //Code to call deleteData function
-                    printf("\nEnter the book no. which you want to delete");
-                    scanf("%d",&bn);
-                    deleteData(bn);
-                    break;
-            case 5:
-                    //Code to call searchData function
-                    searchData();
-                    break;
-            case 6:
-                    exit(0);
-            default:
-                    printf("\n\a\aSORRY!!! You entered an invalid choice");
-                    printf("\nPlease, Enter the valid choice between 1 to 6");           
-        }   
+	system("cls");
+	//Code to display menu
+	printf("\n\t\t*******************************");
+	printf("\n\t\t*******************************");
+	printf("\n\t\t***LIBRARY BOOKS INFO SYSTEM***");
+	printf("\n\t\t**********KIST COLLEGE*********");
+	printf("\n\t\t\t1. Insert Record");
+	printf("\n\t\t\t2. Display Record");
+	printf("\n\t\t\t3. Update Record");
+	printf("\n\t\t\t4. Delete Record");
+	printf("\n\t\t\t5. Search Record");
+	printf("\n\t\t\t6. Quit");
+	printf("\n\n\tEnter your choice between 1 to 6 : ");
+	scanf("%d",&choice);
+	switch(choice)
+	{
+	    case 1:
+		    //Code to call insertData function
+		    insertData();
+		    break;
+	    case 2:
+		    //Code to call displayData function
+		    displayData();
+		    break;
+	    case 3:
+		    //Code to call updateData function
+		    printf("\nEnter the book no. which you want to update");
+		    scanf("%d",&bn);
+		    updateData(bn);
+		    break;
+	    case 4:
+		    //Code to call deleteData function
+		    printf("\nEnter the book no. which you want to delete");
+		    scanf("%d",&bn);
+		    deleteData(bn);
+		    break;
+	    case 5:
+		    //Code to call searchData function
+		    searchData();
+		    break;
+	    case 6:
+		    exit(0);
+	    default:
+		    printf("\n\a\aSORRY!!! You entered an invalid choice");
+		    printf("\nPlease, Enter the valid choice between 1 to 6");
+	}
 
     }
-    getch();
+
+
 }
 //Code to declare function defination
 void insertData()
 {
     char next='y';
     int duplicatebookno=0,lastbookno;
-    //system("cls")
+    system("cls");
     while(next=='y'||next=='Y')
     {
-    	aa:
-    	//system("cls")
-    	printf("\nEnter the book no ");
-    	scanf("%d",&b.bn);
-    	//Code to call function to check the book no. has been repeated or not
-    	duplicatebookno==checkBookNo(b.bn);
-    	if(duplicatebookno==1)
-    	{
-    		printf("\n\nThe book no. which you typed just now, is already exists in the data file!!!!");
-    		printf("\n\nPlease, Enter the unique book no.!!!");
-    		lastbookno=findLastBookNo();
-    		printf("\n\nThe last book no. is : %d",lastbookno);
-    		getch();
-    		goto aa;
+	aa:
+	system("cls");
+	printf("\nEnter the book no ");
+	scanf("%d",&b.bn);
+	//Code to call function to check the book no. has been repeated or not
+	duplicatebookno=checkBookNo(b.bn);
+	if(duplicatebookno==1)
+	{
+		printf("\n\nThe book no. which you typed just now, is already exists in the data file!!!!");
+		printf("\n\nPlease, Enter the unique book no.!!!");
+		lastbookno=findLastBookNo();
+		printf("\n\nThe last book no. is : %d",lastbookno);
+		getch();
+		goto aa;
 		}
 		fflush(stdin);
 		printf("\nEnter the title of the book");
@@ -133,7 +134,7 @@ void insertData()
 			next=getche();
 		}
 	}
-    
+
 }
 void displayData(void)
 {
@@ -151,7 +152,7 @@ void displayData(void)
 		{
 			printf("\n\t%-8d\t%s\t%s\tRs.%2f\t%d\t%s\t%s",b.bn,b.title,b.sub,b.price,b.nob,b.author,b.publisher);
 		}
-		close(fp);
+		fclose(fp);
 	}
 	getch();
 }
@@ -202,7 +203,7 @@ void updateData(int bn)
 				gets(b.author);
 				printf("\nEnter the publisher of the book");
 				gets(b.publisher);
-				fwrite(&b,sizeof(b),1,fp1);		
+				fwrite(&b,sizeof(b),1,fp1);
 			}
 			else
 			{
@@ -345,7 +346,7 @@ void searchData(void)
 				}
 				else
 				{
-					while(frea(&b,sizeof(b),1,fp)==1)
+					while(fread(&b,sizeof(b),1,fp)==1)
 					{
 						if(strcmpi(b.sub,subject)==0)
 						{
