@@ -17,7 +17,7 @@ typedef struct
     int dd;
 } Date;
 
-//Code to declare function prototype
+
 void printMessageCenter(const char* message)
 {
 	int len = 0;
@@ -31,39 +31,6 @@ void printMessageCenter(const char* message)
 	}
 	printf("%s",message);
 }
-void headMessage(const char *message)
-{
-	system("cls");
-	time_t currentTime;
-	time(&currentTime);
-	printf("\t\t\t%s\n", ctime(&currentTime));
-	printf("\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb    LIBRARY BOOKS MANAGEMENT SYSTEM Project in C   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
-    printf("\n\t\t\t---------------------------------------------------------------------------\n");
-    printMessageCenter(message);
-    printf("\n\t\t\t---------------------------------------------------------------------------");
-}
-void welcomeMessage()
-{
-	system("color 90");
-    headMessage("KIST COLLEGE");
-    printf("\n\n\n\n\n");
-    printf("\n\t\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
-    printf("\n\t\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    printf("\n\t\t\t\t        =                 WELCOME                   =");
-    printf("\n\t\t\t\t        =                   TO                      =");
-    printf("\n\t\t\t\t        =              LIBRARY BOOK                 =");
-    printf("\n\t\t\t\t        =               MANAGEMENT                  =");
-    printf("\n\t\t\t\t        =                 SYSTEM                    =");
-    printf("\n\t\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
-    printf("\n\t\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
-    printf("\n\n\n\t\t\t Press any key to continue.....");
-    getch();
-}
-
 // Function to check leap year.
 //Function returns 1 if leap year
 int  IsLeapYear(int year)
@@ -97,6 +64,40 @@ int isValidDate(Date *validDate)
         return (validDate->dd <= 30);
     return 1;
 }
+
+void headMessage(const char *message)
+{
+	system("cls");
+	time_t currentTime;
+	time(&currentTime);
+	printf("\t\t\t%s\n", ctime(&currentTime));
+	printf("\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb    LIBRARY BOOKS MANAGEMENT SYSTEM Project in C   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t---------------------------------------------------------------------------\n");
+    printMessageCenter(message);
+    printf("\n\t\t\t---------------------------------------------------------------------------");
+}
+void welcomeMessage()
+{
+	system("color 90");
+    headMessage("KIST COLLEGE");
+    printf("\n\n\n\n\n");
+    printf("\n\t\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\t\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t\t        =                 WELCOME                   =");
+    printf("\n\t\t\t\t        =                   TO                      =");
+    printf("\n\t\t\t\t        =              LIBRARY BOOK                 =");
+    printf("\n\t\t\t\t        =               MANAGEMENT                  =");
+    printf("\n\t\t\t\t        =                 SYSTEM                    =");
+    printf("\n\t\t\t\t        =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    printf("\n\t\t\t\t  **-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**-**\n");
+    printf("\n\n\n\t\t\t Press any key to continue.....");
+    getch();
+}
+//code to declear function prototype
 
 void insertData();
 void displayData(void);
@@ -198,7 +199,7 @@ void insertData()
     system("cls");
     while(next=='y'||next=='Y')
     {
-	aa:
+	aa: // go to statement
 	system("cls");
 	headMessage("ADD NEW BOOKS");
 	printf("\n\t\t\tEnter the book ID\t		= ");
