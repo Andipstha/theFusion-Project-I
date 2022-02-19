@@ -4,6 +4,7 @@
 #include<process.h>
 #include<string.h>
 #include<stdlib.h>
+#include<windows.h>
 
 #define MAX_YR  9999
 #define MIN_YR  1900
@@ -35,12 +36,12 @@ void headMessage(const char *message)
 	system("cls");
 	time_t currentTime;
 	time(&currentTime);
-	printf("%s\n", ctime(&currentTime));
-	printf("\t\t\t###########################################################################");
-    printf("\n\t\t\t############                                                   ############");
-    printf("\n\t\t\t############    LIBRARY BOOKS MANAGEMENT SYSTEM Project in C   ############");
-    printf("\n\t\t\t############                                                   ############");
-    printf("\n\t\t\t###########################################################################");
+	printf("\t\t\t%s\n", ctime(&currentTime));
+	printf("\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb    LIBRARY BOOKS MANAGEMENT SYSTEM Project in C   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb                                                   \xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
+    printf("\n\t\t\t\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb\xdb");
     printf("\n\t\t\t---------------------------------------------------------------------------\n");
     printMessageCenter(message);
     printf("\n\t\t\t---------------------------------------------------------------------------");
@@ -119,6 +120,7 @@ struct book
     char author[100];
     char publisher[100];
     Date bookIssueDate;
+    Date bookSubmitDate;
 };
 
 
@@ -160,12 +162,14 @@ main()
 			    break;
 		    case 3:
 			    //Code to call updateData function
+			    headMessage("UPDATE MENU");
 			    printf("\n\t\t\tEnter the book no. which you want to update = ");
 			    scanf("%d",&bn);
 			    updateData(bn);
 			    break;
 		    case 4:
 			    //Code to call deleteData function
+			    headMessage("DELETE MENU");
 			    printf("\n\t\t\tEnter the book no. which you want to delete = ");
 			    scanf("%d",&bn);
 			    deleteData(bn);
@@ -197,7 +201,7 @@ void insertData()
 	aa:
 	system("cls");
 	headMessage("ADD NEW BOOKS");
-	printf("\n\t\t\tEnter the book no = ");
+	printf("\n\t\t\tEnter the book ID\t		= ");
 	scanf("%d",&b.bn);
 	//Code to call function to check the book no. has been repeated or not
 	duplicatebookno=checkBookNo(b.bn);
@@ -207,25 +211,29 @@ void insertData()
 		printf("\n\n\t\t\tPlease, Enter the unique Book ID.!!!");
 		lastbookno=findLastBookNo();
 		printf("\n\n\t\t\tThe last book no. is : %d",lastbookno);
+		
 		getch();
 		goto aa;
 		}
 		fflush(stdin);
-		printf("\n\t\t\tEnter the Name of the Student  	   	  = ");
+		printf("\n\t\t\tEnter the Name of the Student		= ");
 		gets(b.stdName);
-		printf("\n\t\t\tEnter the Name of the book 	   	   	  = ");
+		printf("\n\t\t\tEnter the Name of the book 		= ");
 		gets(b.bookName);
-		printf("\n\t\t\tEnter the price of the book 	   	  = ");
+		printf("\n\t\t\tEnter the price of the book		= ");
 		scanf("%f",&b.price);
-		printf("\n\t\t\tEnter the no. of book  	   	   	   	  = ");
+		printf("\n\t\t\tEnter the no. of book			= ");
 		scanf("%d",&b.nob);
 		fflush(stdin);
-		printf("\n\t\t\tEnter the author of the book 	      = ");
+		printf("\n\t\t\tEnter the author of the book		= ");
 		gets(b.author);
-		printf("\n\t\t\tEnter the publisher of the book 	  = ");
+		printf("\n\t\t\tEnter the publisher of the book		= ");
 		gets(b.publisher);
-		printf("\n\t\t\tEnter date in format (day/month/year) = ");
+		printf("\n\t\t\tEnter Issue Date (day/month/year)	= ");
 		scanf("%d/%d/%d",&b.bookIssueDate.dd,&b.bookIssueDate.mm,&b.bookIssueDate.yyyy);
+		printf("\n\t\t\tEnter Submit Date (day/month/year)	= ");
+		scanf("%d/%d/%d",&b.bookSubmitDate.dd,&b.bookSubmitDate.mm,&b.bookSubmitDate.yyyy);
+ 
 		fp=fopen("Book.dat","a");
 		if(fp==NULL)
 		{
@@ -253,10 +261,21 @@ void displayData(void)
 	}
 	else
 	{
-		printf("\n\tBook ID No.  Student Name\tBook Name\t\tPrice\t\tNo. of Books\tAuthor\t\t\tPublisher");
+		printf("\n\tBook ID No.  Student Name\tBook Name\t\tPrice\t\tNo. of Books\tAuthor\t\t\tPublisher\tIssue Date\t\tSubmit Date");
 		while(fread(&b,sizeof(b),1,fp)==1)
 		{
-			printf("\n\t  %-8d   %s\t\t%s\t\t\tRs.%2f\t\t%d\t%s\t\t\t%s",b.bn,b.stdName,b.bookName,b.price,b.nob,b.author,b.publisher);
+		//	printf("\n\t  %-8d   %s\t\t%s\t\t\tRs.%.2f\t\t%d\t%s\t\t\t%s\t\t%d/%d/%d\t%d/%d/%d",b.bn,b.stdName,b.bookName,b.price,b.nob,b.author,b.publisher,b.bookIssueDate.dd,b.bookIssueDate.mm,b.bookIssueDate.yyyy,b.bookIssueDate.dd+15,b.bookIssueDate.mm,b.bookIssueDate.yyyy);
+			
+			printf("\n\t  %-8d   ",b.bn);
+			printf("%s\t\t",b.stdName);
+			printf("%s\t\t\t",b.bookName);
+			printf("Rs.%.2f\t\t",b.price);
+			printf("%d\t",b.nob);
+			printf("%s\t\t\t",b.author);
+			printf("%s\t\t",b.publisher);
+			printf("%d/%d/%d\t",b.bookIssueDate.dd,b.bookIssueDate.mm,b.bookIssueDate.yyyy);
+			printf("%d/%d/%d",b.bookSubmitDate.dd,b.bookSubmitDate.mm,b.bookSubmitDate.yyyy);
+			
 		}
 		fclose(fp);
 	}
@@ -300,7 +319,7 @@ void updateData(int bn)
 				printf("\n\n\n\t\t\tEnter the Book ID 			= ");
 				scanf("%d",&b.bn);
 				fflush(stdin);
-				printf("\n\t\t\tEnter the Name of the Student	= ");
+				printf("\n\t\t\tEnter the Name of the Student		= ");
 				gets(b.stdName);
 				printf("\n\t\t\tEnter the Name of the book		= ");
 				gets(b.bookName);
@@ -309,9 +328,9 @@ void updateData(int bn)
 				printf("\n\t\t\tEnter the no. of book 			= ");
 				scanf("%d",&b.nob);
 				fflush(stdin);
-				printf("\n\t\t\tEnter the author of the book 	= ");
+				printf("\n\t\t\tEnter the author of the book 		= ");
 				gets(b.author);
-				printf("\n\t\t\tEnter the publisher of the book = ");
+				printf("\n\t\t\tEnter the publisher of the book	 	= ");
 				gets(b.publisher);
 				fwrite(&b,sizeof(b),1,fp1);
 			}
@@ -331,31 +350,35 @@ void updateData(int bn)
 /*############################################################ deleteData() ######################################################################*/
 void deleteData(int bn)
 {
+	int found = 0;
 	headMessage("DELETE MENU");
 	fp=fopen("Book.dat","r");
 	fp1=fopen("newBook.dat","w");
+	
 	if(fp==NULL||fp1==NULL)
 	{
 		printf("\nFile Operation failed");
 	}
 	else
 	{
-		while(fread(&b,sizeof(b),1,fp)==1)
+		while(fread(&b,sizeof(b),1,fp))
 		{
-			if(bn==b.bn)
-			{
-				continue;
-			}
-			else
+			if(bn!=b.bn)
 			{
 				fwrite(&b,sizeof(b),1,fp1);
+				//continue;
+			}
+			else
+			{	
+				found = 1;	
 			}
 		}
 		fclose(fp);
 		fclose(fp1);
 		remove("Book.dat");
 		rename("newBook.dat","Book.dat");
-		printf("\n\n\t\t\tThe record has been successfully deleted from the date file.");
+		(found)? printf("\n\t\t\tRecord deleted successfully....."):printf("\n\t\t\tRecord not found");
+		//printf("\n\n\t\t\tThe record has been successfully deleted from the date file.");
 	}
 	getch();
 }
@@ -379,10 +402,10 @@ void searchData(void)
 		case 1:
 			//search on the basis of book no.
 			system("cls");
-			fp=fopen("Book.dat","r");
 			headMessage("SEARCH BY BOOK ID ");
 			printf("\n\n\t\t\tEnter the book id no. which you want to search : ");
 			scanf("%d",&bn);
+			fp=fopen("Book.dat","r");
 			if(fp==NULL)
 			{
 				printf("\n\t\t\tFile seach operation failed!!!!!");
@@ -401,11 +424,13 @@ void searchData(void)
 						printf("\n\t\t\tNo. of Books : %d",b.nob);
 						printf("\n\t\t\tAuthor       : %s",b.author);
 						printf("\n\t\t\tPublisher    : %s",b.publisher);
+						printf("\n\t\t\tBook Issue Date(day/month/year)  :  (%d/%d/%d)\n",b.bookIssueDate.dd,b.bookIssueDate.mm, b.bookIssueDate.yyyy);
+						printf("\t\t\tBook Submit Date(day/month/year)   :  (%d/%d/%d)\n",b.bookSubmitDate.dd,b.bookSubmitDate.mm, b.bookSubmitDate.yyyy);
+							
 						found=1;
-						getch();
 					}
 				}
-				if(found==0);
+				if(found==0)
 				{
 					headMessage("WARNING!!!");
 					printf("\n\t\t\t!!!!!!!!!!!!!!!!!");
@@ -440,8 +465,8 @@ void searchData(void)
 							printf("\n\t\t\tNo. of Books :  %d",b.nob);
 							printf("\n\t\t\tAuthor       :  %s",b.author);
 							printf("\n\t\t\tPublisher    :  %s",b.publisher);
-							printf("\n\t\t\tBook issue date(day/month/year)  :  (%d/%d/%d)\n",b.bookIssueDate.dd,b.bookIssueDate.mm, b.bookIssueDate.yyyy);
-							printf("\n\t\t\tBook Expire date(day/month/year) :  (%d/%d/%d)\n",b.bookIssueDate.dd,b.bookIssueDate.mm+3, b.bookIssueDate.yyyy);
+							printf("\n\t\t\tBook Issue Date(day/month/year)  :  (%d/%d/%d)\n",b.bookIssueDate.dd,b.bookIssueDate.mm, b.bookIssueDate.yyyy);
+							printf("\t\t\tBook Submit Date(day/month/year)    :  (%d/%d/%d)\n",b.bookSubmitDate.dd,b.bookSubmitDate.mm, b.bookSubmitDate.yyyy);
 							++countBook;
 							found=1;
 						}
