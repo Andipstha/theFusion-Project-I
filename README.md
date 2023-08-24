@@ -85,5 +85,3 @@ Contributions are welcome and appreciated! If you'd like to contribute to the pr
 This project is licensed under the [MIT License](LICENSE), which means you have the freedom to use, modify, and distribute the code as long as you include the original license file.
 
 ---
-
-Feel free to customize this README according to your project's specific details. Good luck with your Library Management System project!
